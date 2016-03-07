@@ -1,0 +1,24 @@
+<div class='ui three column doubling stackable grid container'>
+    <div class="grid-sizer"></div>
+    <div class='column grid-item' ng-repeat="x in jokes">
+        <div class="ui segment">
+            <h4>{{x.title}}</h4>
+            <img src="{{x.img}}" class="ui centered medium image"></img>
+        </div>
+    </div>
+</div>
+<div ng-include="'./html/pagination.html'"></div>
+<script>
+// init Masonry
+setTimeout(function() {
+    var $grid = $('.grid').masonry({
+        itemSelector: '.grid-item',
+        percentPosition: true,
+        columnWidth: '.grid-item'
+    });
+    // layout Isotope after each image loads
+    $grid.imagesLoaded().progress(function() {
+        $grid.masonry();
+    });
+}, 1000);
+</script>

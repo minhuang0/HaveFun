@@ -1,0 +1,13 @@
+<div class="ui breadcrumb">
+    <a class="section" ng-class="{ active: pagination.typeid === {{x.id}} }" href="#wechat?typeid={{x.id}}"  ng-repeat="x in news_types">{{x.name}}<div class="divider"> / </div></a>
+    
+</div>
+<div class="ui divided items">
+    <div class="item" ng-repeat="x in news">
+        <div class="ui tiny image">
+            <a href="{{x.url}}" target="_blank"><img src="{{x.contentImg}}" /></a>
+        </div>
+        <div class="middle aligned content">{{x.title}}</div>
+    </div>
+</div>
+<div ng-include="'./html/pagination.html'"></div>
